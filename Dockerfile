@@ -6,6 +6,6 @@ RUN apk add --no-cache maven && mvn package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/employee-service-1.0.0.jar app.jar
-EXPOSE 8081
+COPY --from=build /app/target/eureka-server-1.0.0.jar app.jar
+EXPOSE 8761
 ENTRYPOINT ["java", "-jar", "app.jar"]
